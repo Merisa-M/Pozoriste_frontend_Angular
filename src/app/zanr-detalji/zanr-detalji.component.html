@@ -1,0 +1,20 @@
+<div class="mt-5">
+    <h3>Uredjivanje zanra</h3>
+  </div>
+  
+  <form [formGroup]="zanrForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="zanr" class="mb-1">Uredi zanr</label>
+      <input
+        type="text"
+        formControlName="Naziv"
+        class="form-control"
+        name="zanr"
+        id=""
+        aria-describedby="helpId"
+        value="{{ zanr.naziv }}"
+      />
+    </div>
+    <button type="submit" class="btn btn-success mt-1">Sačuvaj</button>
+  </form>
+  

@@ -1,0 +1,50 @@
+<div class="mt-5">
+  <div class="row mt-5">
+    <div class="col-3">
+      <h1>Gradovi</h1>
+      <hr />
+      <br />
+      <form [formGroup]="gradForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="grad" class="mb-1">Unesite naziv novog grada</label>
+          <input
+            type="text"
+            formControlName="Naziv"
+            class="form-control"
+            name="grad"
+            id=""
+            aria-describedby="helpId"
+            placeholder="Novi grad"
+          />
+        </div>
+        <button type="submit" class="btn btn-success mt-1">
+          Dodaj novi grad
+        </button>
+      </form>
+    </div>
+  </div>
+  <br />
+  <div class="row mt-5">
+    <h4>Lista gradova</h4>
+    <hr />
+    <div *ngFor="let grad of gradovi" class="d-flex mt-1">
+      <div class="col-6">
+        <h4 class="d-inline">{{ grad.naziv }}</h4>
+      </div>
+      <div class="col-3">
+        <button
+          type="button"
+          class="btn btn-primary"
+          routerLink="/grad/{{ grad.id }}"
+        >
+          Uredi
+        </button>
+      </div>
+      <div class="col-3">
+        <button class="btn btn-danger" (click)="deleteGrad(grad.id)">
+          Obriši
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

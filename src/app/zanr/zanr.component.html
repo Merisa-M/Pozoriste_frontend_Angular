@@ -1,0 +1,51 @@
+<div class="mt-5">
+    <div class="row mt-5">
+      <div class="col-3">
+        <h1>Zanrovi</h1>
+        <hr />
+        <br />
+        <form [formGroup]="zanrForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="zanr" class="mb-1">Unesite naziv novog zanra</label>
+            <input
+              type="text"
+              formControlName="Naziv"
+              class="form-control"
+              name="zanr"
+              id=""
+              aria-describedby="helpId"
+              placeholder="Novi zanr"
+            />
+          </div>
+          <button type="submit" class="btn btn-success mt-1">
+            Dodaj novi zanr
+          </button>
+        </form>
+      </div>
+    </div>
+    <br />
+    <div class="row mt-5">
+      <h4>Lista zanrova</h4>
+      <hr />
+      <div *ngFor="let zanr of zanrovi" class="d-flex mt-1">
+        <div class="col-6">
+          <h4 class="d-inline">{{ zanr.naziv }}</h4>
+        </div>
+        <div class="col-3">
+          <button
+            type="button"
+            class="btn btn-primary"
+            routerLink="/zanr/{{ zanr.id }}"
+          >
+            Uredi
+          </button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-danger" (click)="deleteZanr(zanr.id)">
+            Obriši
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
